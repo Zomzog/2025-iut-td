@@ -7,6 +7,10 @@ import java.util.*
 import org.junit.jupiter.api.Test
 
 class Exercies {
+    @Test
+    fun `yolo is ok`() {
+        assertThat("yolo").isEqualTo("yolo")
+    }
 
     @Test
     fun exo1_1() {
