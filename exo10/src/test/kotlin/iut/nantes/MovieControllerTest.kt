@@ -36,14 +36,4 @@ class MovieControllerTest {
                 jsonPath("$[0].name") { value("The Dark Knight") }
             }
     }
-
-    @Test
-    fun demoPost() {
-       mockMvc.post("/api/movies") {
-            contentType = MediaType.APPLICATION_JSON
-            content = """{"name": "The Dark Knight", "year": 2008}"""
-        }.andExpect {
-            status { isBadRequest() }
-        }
-    }
 }

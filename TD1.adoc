@@ -387,14 +387,17 @@ Reponse:
 ]
 ----
 
-== Exo 18: List filtré par header
+== Exo 18: Gestion des langues
 
 Sur la liste des films, si le header `Accept-Language` est fourni,
-filtrer la liste des résultats
+utiliez le pour traduire le titres.
+
+Les traductions sont dans Movie.FR_FR et Movie.FR_CA,
+si elle n'est pas disponible, utilisez le titre original.
 
 Exemple d'appel:
 ----
-curl --header "Accept-Language: VFF" --location 'localhost:8080/api/movies'
+curl --header "Accept-Language: fr-FR" --location 'localhost:8080/api/movies?rating=99'
 ----
 
 Reponse:
@@ -402,7 +405,28 @@ Reponse:
 ----
 [
   {
-    "name": "My Little Pony",
+    "name": "My Little Pony, le film",
+    "releaseDate": 2017,
+    "rating": 99,
+    "languages": [
+      "VO",
+      "VFF"
+    ]
+  }
+]
+----
+
+Exemple d'appel:
+----
+curl --header "Accept-Language: de-DE" --location 'localhost:8080/api/movies?rating=99'
+----
+
+Reponse:
+[source,json]
+----
+[
+  {
+    "name": "My Little Pony: The Movie",
     "releaseDate": 2017,
     "rating": 99,
     "languages": [
@@ -415,13 +439,12 @@ Reponse:
 
 == Exo 19
 
-Spring fourni un framework appelé MockMvc pour faire des requêtes et des assertions lors des tests.
-
-Cette API peut-être injecté en ajoutant `@AutoConfigureMockMvc` à un test.
+En utilisant MockMvc + SpringBootTest, faire une couverture à 100% du enpoint localhost:8080/api/movies?rating
 
 Un example est fourni dans MovieControllerTest,
 
 La documentation se trouve https://docs.spring.io/spring-framework/reference/testing/mockmvc.html[ici]
 
-Utiliser ce framework, faire de test de la class MovieController
+== Exo 20
 
+En utilisant WebMvcTest, faire une couverture à 100% du RestController
