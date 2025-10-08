@@ -1,6 +1,6 @@
 == TD1
 
-Checkout de https://github.com/Zomzog/2024-iut-td.git
+Checkout de https://github.com/Zomzog/2025-iut-td.git
 
 Sur le réseau de l'IUT, ajouter à la racine un fichier gradle.properties avec le contenu suivant:
 
@@ -46,7 +46,7 @@ Le test doit passer.
 
 == Exo 3
 
-Faire en sorte qu'ils ne partagent plus la même instance de `Database`
+En jouant sur le scope, faire en sorte qu'ils ne partagent plus la même instance de `Database`
 
 Dans la classe de test Exercice#exo1_3 charger le context Spring à partir de AppConfig
 pour obtenir une instance des services.
@@ -61,7 +61,9 @@ Le test exo1_3 doit toujours fonctionner
 
 == Exo 5
 
-Remplacer la création du bean `Database` en utilisant le stereotype `@Repository`
+Remplacer la création du bean `Database` en utilisant le stereotype `@Repository`.
+
+Il faut ajouter un @ComponentScan sur AppConfig pour que Spring le cherche.
 
 Le test exo1_3 doit toujours fonctionner
 
