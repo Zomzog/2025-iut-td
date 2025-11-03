@@ -1,8 +1,13 @@
 package iut.nantes
 
+import org.springframework.beans.factory.config.ConfigurableBeanFactory
+import org.springframework.context.annotation.Scope
+import org.springframework.stereotype.Repository
 import java.util.UUID
 
-class ListDatabase: Database{
+@Repository
+@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+class ListDatabase : Database {
     private val users = mutableListOf<User>()
 
     override fun save(user: User) {
