@@ -7,11 +7,12 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-class MovieController(val database: Database){
+class MovieController(val database: Database) {
     @PostMapping("/api/movies")
     fun addMovie(@RequestBody movie: Movie) =
         if (database.getOne(movie.name) == null) {
@@ -29,4 +30,17 @@ class MovieController(val database: Database){
         database.getOne(name)
             ?.let { ResponseEntity.ok(it) }
             ?: ResponseEntity.status(HttpStatus.NOT_FOUND).build()
+
+    @PutMapping("/api/movies/{name}")
+    fun update(@PathVariable name: String, @RequestBody movie: Movie) =
+        if (name != movie.name) {
+            ResponseEntity.badRequest().body("Name in path and body must be the same")
+        } else if (database.getOne(name) == null) {
+            ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body("Movie not found")
+        } else {
+            database.update(movie).let {
+                ResponseEntity.ok(it)
+            }
+        }
 }
