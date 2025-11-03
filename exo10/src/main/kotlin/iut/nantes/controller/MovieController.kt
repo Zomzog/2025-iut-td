@@ -1,0 +1,17 @@
+package iut.nantes.controller
+
+import iut.nantes.Database
+import iut.nantes.Movie
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RestController
+
+@RestController
+class MovieController(val database: Database){
+    @PostMapping("/api/movies")
+    fun addMovie(@RequestBody movie: Movie) =
+        database.addMovie(movie)
+            .let { ResponseEntity.status(HttpStatus.CREATED).body(it) }
+}
