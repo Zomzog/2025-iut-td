@@ -6,6 +6,8 @@ import assertk.assertions.isEqualTo
 import assertk.assertions.isInstanceOf
 import java.util.*
 import org.junit.jupiter.api.Test
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 class Exercies {
@@ -50,6 +52,18 @@ class Exercies {
         assertThat(superUserService.database).isInstanceOf(HashDatabase::class)
     }
 
+}
+
+@SpringBootTest
+class Exo8 {
+
+    @Autowired
+    private lateinit var userService: UserService
+
+    @Test
+    fun exo_8() {
+        // Test le chargement du contexte
+    }
 }
 
 private fun user(uuid: UUID = UUID(0, 1)) = User(uuid, "John Doe", "email@noop.pony", 42)
