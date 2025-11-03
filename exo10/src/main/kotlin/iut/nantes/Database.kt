@@ -21,4 +21,8 @@ class Database {
         return movie
     }
 
+    fun delete(name: String) {
+        movies.remove(name)
+    }
+
 }

@@ -4,6 +4,7 @@ import iut.nantes.Database
 import iut.nantes.Movie
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -43,4 +44,10 @@ class MovieController(val database: Database) {
                 ResponseEntity.ok(it)
             }
         }
+
+    @DeleteMapping("/api/movies/{name}")
+    fun delete(@PathVariable name: String): ResponseEntity<Unit> = database.getOne(name)?.let {
+        database.delete(it.name)
+        ResponseEntity.noContent().build()
+    } ?: ResponseEntity.badRequest().build()
 }
