@@ -4,6 +4,7 @@ import iut.nantes.Database
 import iut.nantes.Movie
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
@@ -18,4 +19,7 @@ class MovieController(val database: Database){
         } else {
             ResponseEntity.status(HttpStatus.CONFLICT).build()
         }
+
+    @GetMapping("/api/movies")
+    fun findAll() = database.findAll()
 }

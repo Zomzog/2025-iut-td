@@ -14,4 +14,6 @@ class Database {
 
     fun getOne(name: String) = movies[name]
 
+    fun findAll(): List<Movie> = movies.values.toList()
+
 }
