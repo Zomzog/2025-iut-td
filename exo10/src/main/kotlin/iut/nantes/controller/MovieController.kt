@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.RestController
 class MovieController(val database: Database){
     @PostMapping("/api/movies")
     fun addMovie(@RequestBody movie: Movie) =
-        database.addMovie(movie)
-            .let { ResponseEntity.status(HttpStatus.CREATED).body(it) }
+        if (database.getOne(movie.name) == null) {
+            database.addMovie(movie)
+                .let { ResponseEntity.status(HttpStatus.CREATED).body(it) }
+        } else {
+            ResponseEntity.status(HttpStatus.CONFLICT).build()
+        }
 }
