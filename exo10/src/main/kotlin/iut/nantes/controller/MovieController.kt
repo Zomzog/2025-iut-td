@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
@@ -24,7 +25,14 @@ class MovieController(val database: Database) {
         }
 
     @GetMapping("/api/movies")
-    fun findAll() = database.findAll()
+    fun findAll(@RequestParam(name = "rating") queryRating: List<Int>?,): List<Movie> {
+       val all = database.findAll()
+        return if (queryRating != null) {
+             all.filter { it.rating in queryRating }
+        } else {
+            all
+        }
+    }
 
     @GetMapping("/api/movies/{name}")
     fun getOne(@PathVariable name: String) =
