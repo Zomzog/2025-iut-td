@@ -4,8 +4,11 @@ import assertk.assertThat
 import assertk.assertions.isEmpty
 import assertk.assertions.isEqualTo
 import assertk.assertions.isInstanceOf
+import com.ninjasquad.springmockk.MockkBean
+import io.mockk.every
 import java.util.*
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.context.annotation.AnnotationConfigApplicationContext
@@ -59,10 +62,22 @@ class Exo8 {
 
     @Autowired
     private lateinit var userService: UserService
+    @MockkBean
+    private lateinit var database: Database
 
     @Test
     fun exo_8() {
         // Test le chargement du contexte
+    }
+
+    @Test
+    fun exo_9() {
+        // GIVEN
+        every { database.delete(any()) } returns Unit
+        every { database.delete(user()) } throws NoSuchElementException()
+        // THEN
+        assertThrows<NoSuchElementException> { userService.delete(user()) }
+        userService.delete(user(UUID.randomUUID()))
     }
 }
 
