@@ -10,11 +10,14 @@ import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-class ListDatabaseTest {
-    var database = ListDatabase()
+class ListDatabaseTest: DatabaseTest({ ListDatabase() })
+class HashDatabaseTest: DatabaseTest({ HashDatabase() })
+
+abstract class DatabaseTest(val instance: () -> Database) {
+    lateinit var database: Database
     @BeforeEach
     fun setup() {
-        database = ListDatabase()
+        database = instance()
     }
 
     @Test
