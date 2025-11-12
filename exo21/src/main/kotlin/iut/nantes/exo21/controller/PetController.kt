@@ -5,6 +5,7 @@ import jakarta.validation.Constraint
 import jakarta.validation.ConstraintValidator
 import jakarta.validation.ConstraintValidatorContext
 import jakarta.validation.Payload
+import jakarta.validation.Valid
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -27,9 +28,8 @@ class PetController(val database : MutableMap<Int, PetDto> = mutableMapOf()){
         ResponseEntity.ok(it)
     } ?: ResponseEntity.notFound().build()
 
-
     @PostMapping("/api/v1/pets")
-    fun createPet(@RequestBody pet: PetDto): ResponseEntity<PetDto> {
+    fun createPet(@RequestBody @Valid pet: PetDto): ResponseEntity<PetDto> {
         val next = (database.keys.maxOrNull() ?: 0) + 1
         val withId = pet.copy(id = next)
         database[next] = withId
