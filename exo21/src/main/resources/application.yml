@@ -1,4 +1,4 @@
-spring.application.name: exo20Yml
+spring.application.name: exo20
 spring:
   r2dbc:
     url: jdbc:h2:mem:///test;MODE=PostgreSQL

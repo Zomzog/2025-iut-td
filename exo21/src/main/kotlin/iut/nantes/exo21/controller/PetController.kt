@@ -1,6 +1,10 @@
 package iut.nantes.exo21.controller
 
 import iut.nantes.exo21.errors.ImATeapotException
+import jakarta.validation.Constraint
+import jakarta.validation.ConstraintValidator
+import jakarta.validation.ConstraintValidatorContext
+import jakarta.validation.Payload
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -12,12 +16,12 @@ import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
+import kotlin.reflect.KClass
 
 @Validated
 @RestController
 class PetController(val database : MutableMap<Int, PetDto> = mutableMapOf()){
 
-@ConditionalOnProperty(matchIfMissing = true)
     @GetMapping("/api/v1/pets/{petId}")
     fun getPet(@PathVariable petId: Int) = database[petId]?.let {
         ResponseEntity.ok(it)
@@ -54,3 +58,4 @@ class PetController(val database : MutableMap<Int, PetDto> = mutableMapOf()){
         return ResponseEntity.ok(result)
     }
 }
+
