@@ -2,6 +2,7 @@ package iut.nantes.exo21.controller
 
 import iut.nantes.exo21.domain.AgeRange
 import iut.nantes.exo21.domain.PetId
+import iut.nantes.exo21.domain.ValidAgeRange
 import iut.nantes.exo21.errors.ImATeapotException
 import jakarta.validation.Constraint
 import jakarta.validation.ConstraintValidator
@@ -53,7 +54,7 @@ class PetController(val database : MutableMap<Int, PetDto> = mutableMapOf()){
     }
 
     @GetMapping("/api/v1/pets")
-    fun getPets(filters: AgeRange): ResponseEntity<List<PetDto>> {
+    fun getPets(@ValidAgeRange filters: AgeRange): ResponseEntity<List<PetDto>> {
        var result: List<PetDto> = database.values.toList()
         if (filters.minAge != null) result = result.filter { it.age >= filters.minAge }
         if (filters.maxAge != null) result = result.filter { it.age <= filters.maxAge }
