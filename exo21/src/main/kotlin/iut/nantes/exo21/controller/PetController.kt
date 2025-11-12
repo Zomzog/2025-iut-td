@@ -1,5 +1,6 @@
 package iut.nantes.exo21.controller
 
+import iut.nantes.exo21.domain.PetId
 import iut.nantes.exo21.errors.ImATeapotException
 import jakarta.validation.Constraint
 import jakarta.validation.ConstraintValidator
@@ -24,7 +25,7 @@ import kotlin.reflect.KClass
 class PetController(val database : MutableMap<Int, PetDto> = mutableMapOf()){
 
     @GetMapping("/api/v1/pets/{petId}")
-    fun getPet(@PathVariable petId: Int) = database[petId]?.let {
+    fun getPet(@PathVariable @PetId petId: Int) = database[petId]?.let {
         ResponseEntity.ok(it)
     } ?: ResponseEntity.notFound().build()
 
@@ -37,7 +38,7 @@ class PetController(val database : MutableMap<Int, PetDto> = mutableMapOf()){
     }
 
     @PutMapping("/api/v1/pets/{petId}")
-    fun updatePet(@RequestBody pet: PetDto, @PathVariable petId: Int): ResponseEntity<PetDto> {
+    fun updatePet(@RequestBody pet: PetDto, @PathVariable @PetId petId: Int): ResponseEntity<PetDto> {
         if (pet.id != petId) {
             throw IllegalArgumentException("Pet ID in path and body do not match")
         }
