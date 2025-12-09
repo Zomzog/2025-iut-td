@@ -7,6 +7,7 @@ import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.JoinColumn
+import jakarta.persistence.ManyToOne
 import jakarta.persistence.OneToMany
 import jakarta.persistence.OneToOne
 import org.springframework.data.jpa.repository.JpaRepository
@@ -21,7 +22,7 @@ data class HumanEntity(
     @OneToOne(cascade = [(CascadeType.ALL)])
     @JoinColumn(name = "contact_id")
     val contact: ContactEntity,
-    @OneToMany(cascade = [(CascadeType.ALL)], fetch = FetchType.EAGER)
+    @OneToMany(cascade = [(CascadeType.ALL)])
     @JoinColumn(name = "human_id")
     val pets: List<PetEntity> = emptyList(),
     )
@@ -41,5 +42,8 @@ data class PetEntity(
     val petId: Int?,
     val name: String,
     val age: Int,
-    val kind: String
+    val kind: String,
+    @ManyToOne
+    @JoinColumn(name = "human_id")
+    val human: HumanEntity? = null,
     )
