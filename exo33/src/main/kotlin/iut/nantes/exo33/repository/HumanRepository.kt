@@ -26,4 +26,7 @@ data class HumanEntity(
 data class ContactEntity(
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     val contactId: Int?,
-    val email: String)
+    val email: String,
+    @OneToOne(mappedBy = "contactEntity")
+    val humanEntity: HumanEntity? = null,
+    )

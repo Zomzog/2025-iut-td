@@ -32,7 +32,8 @@ class DatabaseProxy(val repository: HumanRepository) {
     }
 
     fun findAllHuman(): List<HumanDto> {
-        return repository.findAll().map { it.toDto() }
+        return repository.findAll()
+            .map { it.toDto() }
     }
 }
 
