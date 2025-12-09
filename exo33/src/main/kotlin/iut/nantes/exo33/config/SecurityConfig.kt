@@ -19,6 +19,7 @@ class SecurityConfig {
             csrf { disable() }
             authorizeHttpRequests {
                 authorize (HttpMethod.GET, "/**", permitAll)
+                authorize("/api/v1/humans/*/pets/*", hasRole("ADMIN"))
                 authorize(anyRequest, authenticated)
             }
             httpBasic { }
