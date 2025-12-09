@@ -30,30 +30,36 @@ class DatabaseProxy(val repository: HumanRepository) {
     }
 
     fun findHumanById(id: Int): HumanDto? {
-       return repository.findById(id).map { it.toDto() }.orElse(null)
+        return repository.findById(id).map { it.toDto() }.orElse(null)
     }
 
     fun findAllHuman(): List<HumanDto> {
         return repository.findAll()
             .map { it.toDto() }
     }
+
+    fun deletePet(humanId: Int, petId: Int) {
+        val human = repository.findById(humanId).orElseThrow { IllegalArgumentException("Human with ID $humanId not found") }
+        human.pets.removeIf { it.petId == petId }
+        repository.save(human)
+    }
+
+    fun HumanDto.toEntity(): HumanEntity = HumanEntity(
+        humanId = this.humanId,
+        name = this.name,
+        contact = ContactEntity(
+            contactId = null,
+            email = this.contact.email
+        ),
+        pets = this.pets.map { PetEntity(it.id, it.name, it.age, it.kind.name) }.toMutableList()
+    )
+
+    fun HumanEntity.toDto(): HumanDto = HumanDto(
+        humanId = this.humanId,
+        name = this.name,
+        contact = ContactDto(
+            email = this.contact.email
+        ),
+        pets = this.pets.map { PetDto(it.petId, it.name, it.age, PetKind.valueOf(it.kind)) }
+    )
 }
-
-fun HumanDto.toEntity(): HumanEntity = HumanEntity(
-    humanId = this.humanId,
-    name = this.name,
-    contact = ContactEntity(
-        contactId = null,
-        email = this.contact.email
-    ),
-    pets = this.pets.map { PetEntity(it.id, it.name, it.age, it.kind.name) }
-)
-
-fun HumanEntity.toDto(): HumanDto = HumanDto(
-    humanId = this.humanId,
-    name = this.name,
-    contact = ContactDto(
-        email = this.contact.email
-    ),
-    pets = this.pets.map { PetDto(it.petId, it.name, it.age, PetKind.valueOf(it.kind)) }
-)
