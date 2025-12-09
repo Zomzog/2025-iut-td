@@ -1,0 +1,36 @@
+== Exo 41
+
+Ajouter spring security au projet.
+
+Configurer le SecurityFilterChain pour que toutes les requêtes GET passent sans authentification, mais que les autres requêtes nécessitent une authentification.
+
+Le test `exo 41` doit passer.
+
+== Exo 42
+
+Appeler le endpoint DELETE "/api/v1/humans/{humanId}/pets/{petId}" nécessite d'avoir le rôle admin.
+
+Modifier la configuration pour que le test `exo 40` ne passe plus à cause d'une erreur 403, puis corriger le test pour ne plus avoir une 403.
+
+== Exo 43
+
+Ajouter un InMemoryUserDetailsManager avec un utilisateur user classique et un utilisateur admin.
+
+Une fois l'application lancée, appeler les endpoints (curl, bruno...) avec le basic auth qui correspond à ces utilisateurs.
+
+== Exo 44
+
+Modifier HumanDto pour lui ajouter un attribut creatorLogin
+
+[source,kotlin]
+----
+data class HumanDto(val humanId: Int?, val name: String, val contact: ContactDto, val pets: List<PetDto>, val creatorLogin: String?)
+----
+
+Ce login doit être celui de l'utilisateur authentifié lors de la création de la donnée.
+
+Le test `exo 44` doit passer une fois la ligne MockUser activée.
+
+== Exo Bonus
+
+Remplacer le InMemoryUserDetailsManager par un JdbcUserDetailsManager.
