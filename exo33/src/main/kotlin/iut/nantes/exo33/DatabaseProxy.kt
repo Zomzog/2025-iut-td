@@ -1,7 +1,9 @@
 package iut.nantes.exo33
 
+import iut.nantes.exo33.controller.ContactDto
 import iut.nantes.exo33.controller.HumanDto
 import iut.nantes.exo33.controller.PetDto
+import iut.nantes.exo33.repository.ContactEntity
 import iut.nantes.exo33.repository.HumanEntity
 import iut.nantes.exo33.repository.HumanRepository
 import org.springframework.stereotype.Service
@@ -21,10 +23,7 @@ class DatabaseProxy(val repository: HumanRepository) {
     }
 
     fun saveHuman(humanDto: HumanDto): HumanDto {
-        val saved = repository.save(HumanEntity(
-            humanId = humanDto.humanId,
-            name = humanDto.name
-        ))
+        val saved = repository.save(humanDto.toEntity())
         return saved.toDto()
     }
 
@@ -39,10 +38,17 @@ class DatabaseProxy(val repository: HumanRepository) {
 
 fun HumanDto.toEntity(): HumanEntity = HumanEntity(
     humanId = this.humanId,
-    name = this.name
+    name = this.name,
+    contactEntity = ContactEntity(
+        contactId = null,
+        email = this.contact.email
+    )
 )
 
 fun HumanEntity.toDto(): HumanDto = HumanDto(
     humanId = this.humanId,
-    name = this.name
+    name = this.name,
+    contact = ContactDto(
+        email = this.contactEntity.email
+    )
 )
