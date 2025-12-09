@@ -4,7 +4,7 @@ Ajouter spring security au projet.
 
 Configurer le SecurityFilterChain pour que toutes les requêtes GET passent sans authentification, mais que les autres requêtes nécessitent une authentification.
 
-Le test `exo 41` doit passer.
+Le test `exo 41` doit passer. Les exos précédents sont KO.
 
 == Exo 42
 
