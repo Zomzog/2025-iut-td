@@ -3,9 +3,11 @@ package iut.nantes.exo33
 import iut.nantes.exo33.controller.ContactDto
 import iut.nantes.exo33.controller.HumanDto
 import iut.nantes.exo33.controller.PetDto
+import iut.nantes.exo33.controller.PetKind
 import iut.nantes.exo33.repository.ContactEntity
 import iut.nantes.exo33.repository.HumanEntity
 import iut.nantes.exo33.repository.HumanRepository
+import iut.nantes.exo33.repository.PetEntity
 import org.springframework.stereotype.Service
 
 @Service
@@ -40,16 +42,18 @@ class DatabaseProxy(val repository: HumanRepository) {
 fun HumanDto.toEntity(): HumanEntity = HumanEntity(
     humanId = this.humanId,
     name = this.name,
-    contactEntity = ContactEntity(
+    contact = ContactEntity(
         contactId = null,
         email = this.contact.email
-    )
+    ),
+    pets = this.pets.map { PetEntity(it.id, it.name, it.age, it.kind.name) }
 )
 
 fun HumanEntity.toDto(): HumanDto = HumanDto(
     humanId = this.humanId,
     name = this.name,
     contact = ContactDto(
-        email = this.contactEntity.email
-    )
+        email = this.contact.email
+    ),
+    pets = this.pets.map { PetDto(it.petId, it.name, it.age, PetKind.valueOf(it.kind)) }
 )
