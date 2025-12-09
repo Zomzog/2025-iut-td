@@ -22,9 +22,9 @@ data class HumanEntity(
     @OneToOne(cascade = [(CascadeType.ALL)])
     @JoinColumn(name = "contact_id")
     val contact: ContactEntity,
-    @OneToMany(cascade = [(CascadeType.ALL)])
+    @OneToMany(cascade = [(CascadeType.ALL)], orphanRemoval = true)
     @JoinColumn(name = "human_id")
-    val pets: List<PetEntity> = emptyList(),
+    val pets: MutableList<PetEntity> = mutableListOf(),
     )
 
 @Entity
