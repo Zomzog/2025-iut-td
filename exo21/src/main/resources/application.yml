@@ -9,3 +9,9 @@ spring:
     console:
       enabled: true
 
+custom:
+  app-name: "mon application"
+  app-version: "1.0.1"
+  git:
+    branch: "main"
+    commit: "123456"
