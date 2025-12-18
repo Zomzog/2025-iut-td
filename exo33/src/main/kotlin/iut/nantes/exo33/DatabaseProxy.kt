@@ -51,6 +51,7 @@ class DatabaseProxy(val repository: HumanRepository) {
             contactId = null,
             email = this.contact.email
         ),
+        creatorLogin = this.creatorLogin ?: throw IllegalArgumentException("Creator login cannot be null"),
         pets = this.pets.map { PetEntity(it.id, it.name, it.age, it.kind.name) }.toMutableList()
     )
 
@@ -60,6 +61,7 @@ class DatabaseProxy(val repository: HumanRepository) {
         contact = ContactDto(
             email = this.contact.email
         ),
+        creatorLogin = this.creatorLogin,
         pets = this.pets.map { PetDto(it.petId, it.name, it.age, PetKind.valueOf(it.kind)) }
     )
 }

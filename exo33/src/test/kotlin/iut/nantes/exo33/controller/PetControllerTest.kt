@@ -129,7 +129,7 @@ class PetControllerTest {
 
 
     @Test
-    //@WithMockUser(username = "theAdmin", roles = ["ADMIN"])
+    @WithMockUser(username = "theAdmin", roles = ["ADMIN"])
     fun `exo 44`() {
         mockMvc.post("/api/v1/humans") {
             contentType = APPLICATION_JSON

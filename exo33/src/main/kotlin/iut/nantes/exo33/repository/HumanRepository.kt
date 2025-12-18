@@ -25,6 +25,7 @@ data class HumanEntity(
     @OneToMany(cascade = [(CascadeType.ALL)], orphanRemoval = true)
     @JoinColumn(name = "human_id")
     val pets: MutableList<PetEntity> = mutableListOf(),
+    val creatorLogin: String
     )
 
 @Entity

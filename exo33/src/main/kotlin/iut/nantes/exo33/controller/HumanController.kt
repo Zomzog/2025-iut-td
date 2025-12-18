@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
+import java.security.Principal
 
 @RestController
 class HumanController(val db: DatabaseProxy){
@@ -21,8 +22,8 @@ class HumanController(val db: DatabaseProxy){
     } ?: ResponseEntity.notFound().build()
 
     @PostMapping("/api/v1/humans")
-    fun createHuman(@RequestBody human: HumanDto): ResponseEntity<HumanDto> {
-        val withId = db.saveHuman(human)
+    fun createHuman(@RequestBody human: HumanDto, principal: Principal): ResponseEntity<HumanDto> {
+        val withId = db.saveHuman(human.copy(creatorLogin = principal.name))
         return ResponseEntity.status(HttpStatus.CREATED).body(withId)
     }
 
