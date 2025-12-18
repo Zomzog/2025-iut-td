@@ -30,6 +30,12 @@ class WebClientService(val webClient: WebClient) {
     }
 
     fun error() {
-        TODO()
+        webClient.get().uri {
+            it.path("/api/v1/error")
+                .build()}
+            .retrieve()
+            .onStatus({ it.is5xxServerError }, { Mono.error(MyInternalError()) })
+            .bodyToMono(HelloDto::class.java)
+            .block()
     }
 }
