@@ -20,7 +20,13 @@ class WebClientService(val webClient: WebClient) {
     }
 
     fun noHello(): HelloDto? {
-        TODO()
+        return webClient.post().uri {
+            it.path("/api/v1/noHello")
+                .build()
+        }.bodyValue(HelloDto("No hello"))
+            .retrieve()
+            .bodyToMono(HelloDto::class.java)
+            .block()
     }
 
     fun error() {
