@@ -9,7 +9,11 @@ import reactor.core.publisher.Mono
 @Profile("webclient")
 class WebClientService(val webClient: WebClient) {
     fun hello(): HelloDto? {
-        return webClient.get().uri("/api/v1/hello")
+        return webClient.get().uri {
+            it.path("/api/v1/hello")
+                .queryParam("name", "world")
+                .build()
+        }
             .retrieve()
             .bodyToMono(HelloDto::class.java)
             .block()
