@@ -1,0 +1,5 @@
+custom:
+  app-version: "1.0.2-SNAPSHOT"
+  git:
+    branch: "feature/TICKET"
+    commit: "654321"
