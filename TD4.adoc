@@ -1,0 +1,79 @@
+== Exo 60
+
+Ajouter la dépendance flyway au projet.
+
+Ajouter un fichier de version flyway pour faire une V1 dont la description est init avec dedans :
+
+[source,sql]
+----
+CREATE TABLE PONY (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL
+);
+----
+
+Le test `exo 60` doit passer.
+
+== Exo 61
+
+Ajouter une V2 à la migration qui ajoute une colonne color en chaîne de caractères et une colonne age à la table PONY
+
+Le test `exo 61` doit passer.
+
+== Exo 62
+
+Ajouter les dépendances nécessaires pour utiliser test-containers avec postgres.
+
+À l'aide d'une propriété dans un fichier application.yml de test, passer sur un test-container Postgres.
+
+Les tests `exo 60` et `exo 61` doivent passer ET il doit y avoir un lancement d'un conteneur Postgres lors de l'exécution des tests (visible dans les logs).
+
+== Exo 63
+
+Remplacer la config test-container par properties par un container avec l'annotation @ServiceConnection
+
+== Exo 65
+
+À l'aide du logger Kotlin-Logging, dans LogController, ajouter un log info quand la valeur random est présente, un log error avec l'exception sinon.
+
+== Exo 65
+
+Ajouter un fichier logback-spring.xml pour configurer le logger de l'application.
+
+Les logs doivent être affichés dans la console avec le pattern suivant :
+
+`date - level - thread - message`
+
+== Exo 66
+
+Faire en sorte qu'en cas de profil dev, les logs de `org.springframework` soient au niveau DEBUG.
+
+== Exo 66
+
+Activer les actuators, il faut exposer au moins /info
+
+Le test exo 66 doit passer.
+
+== Exo 67
+
+Ajouter au endpoint /actuator/info `app-name` qui est la valeur de `spring.application.name`
+
+Le test exo 67 doit passer.
+
+== Exo 68
+
+Ajouter les dépendances nécessaires pour avoir le endpoint /actuator/prometheus
+
+Le endpoint doit répondre une fois l'application lancée.
+
+== Exo 69
+
+Ajouter une métrique custom appelée `logCall` qui compte le nombre d'appels au endpoint `/log`.
+
+== Exo 70
+
+Ajouter une dimension "result" qui soit "success" si la valeur random est présente et "error" sinon.
+
+== Exo 71
+
+Migrer l'application en réactive en utilisant spring-webflux et les coroutines

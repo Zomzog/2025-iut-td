@@ -24,7 +24,7 @@ Modifier HumanDto pour lui ajouter un attribut creatorLogin
 
 [source,kotlin]
 ----
-data class HumanDto(val humanId: Int?, val name: String, val contact: ContactDto, val pets: List<PetDto>, val creatorLogin: String?)
+data class HumanDto(val humanId: Int?, val name: String, val contact: ContactDto, val pets: List<PetDto>, val creatorLogin: String? = null)
 ----
 
 Ce login doit être celui de l'utilisateur authentifié lors de la création de la donnée.
@@ -34,6 +34,8 @@ Le test `exo 44` doit passer une fois la ligne MockUser activée.
 == Exo Bonus
 
 Remplacer le InMemoryUserDetailsManager par un JdbcUserDetailsManager.
+
+Pour le schema de BDD, il peut être ajouté en le mettant dans `/src/main/resources/schema.sql`
 
 == Exo 45
 

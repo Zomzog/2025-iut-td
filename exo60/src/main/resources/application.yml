@@ -1,0 +1,6 @@
+custom:
+  client:
+    base-url: http://localhost:8081
+    
+
+
