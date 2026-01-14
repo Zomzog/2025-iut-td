@@ -1,0 +1,20 @@
+custom:
+  client:
+    base-url: http://localhost:8081
+    
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  flyway:
+    enabled: true
+    url: ${spring.datasource.url}
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+  h2:
+    console:
+      enabled: true
+
+

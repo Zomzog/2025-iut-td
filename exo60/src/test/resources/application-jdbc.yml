@@ -1,0 +1,13 @@
+custom:
+  client:
+    base-url: http://localhost:8081
+    
+spring:
+  datasource:
+    url: something
+    username: sa
+    password: password
+  flyway:
+    enabled: true
+
+
