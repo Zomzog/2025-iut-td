@@ -1,11 +1,17 @@
 package iut.nantes.exo33
 
+import iut.nantes.exo33.controller.ContactDto
 import iut.nantes.exo33.controller.HumanDto
 import iut.nantes.exo33.controller.PetDto
+import iut.nantes.exo33.controller.PetKind
+import iut.nantes.exo33.repository.ContactEntity
+import iut.nantes.exo33.repository.HumanEntity
+import iut.nantes.exo33.repository.HumanRepository
+import iut.nantes.exo33.repository.PetEntity
 import org.springframework.stereotype.Service
 
 @Service
-class DatabaseProxy() {
+class DatabaseProxy(val repository: HumanRepository) {
     fun savePet(pet: PetDto): PetDto {
         TODO()
     }
@@ -19,14 +25,41 @@ class DatabaseProxy() {
     }
 
     fun saveHuman(humanDto: HumanDto): HumanDto {
-        TODO()
+        val saved = repository.save(humanDto.toEntity())
+        return saved.toDto()
     }
 
     fun findHumanById(id: Int): HumanDto? {
-        TODO()
+        return repository.findById(id).map { it.toDto() }.orElse(null)
     }
 
     fun findAllHuman(): List<HumanDto> {
-        TODO()
+        return repository.findAll()
+            .map { it.toDto() }
     }
+
+    fun deletePet(humanId: Int, petId: Int) {
+        val human = repository.findById(humanId).orElseThrow { IllegalArgumentException("Human with ID $humanId not found") }
+        human.pets.removeIf { it.petId == petId }
+        repository.save(human)
+    }
+
+    fun HumanDto.toEntity(): HumanEntity = HumanEntity(
+        humanId = this.humanId,
+        name = this.name,
+        contact = ContactEntity(
+            contactId = null,
+            email = this.contact.email
+        ),
+        pets = this.pets.map { PetEntity(it.id, it.name, it.age, it.kind.name) }.toMutableList()
+    )
+
+    fun HumanEntity.toDto(): HumanDto = HumanDto(
+        humanId = this.humanId,
+        name = this.name,
+        contact = ContactDto(
+            email = this.contact.email
+        ),
+        pets = this.pets.map { PetDto(it.petId, it.name, it.age, PetKind.valueOf(it.kind)) }
+    )
 }

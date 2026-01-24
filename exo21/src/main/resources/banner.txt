@@ -1,0 +1,1 @@
+${custom.app-name} ${custom.app-version} ${custom.git.branch} ${custom.git.commit}
