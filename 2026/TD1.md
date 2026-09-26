@@ -48,13 +48,13 @@ avant le MVC (ancien exo 10), alors que c1 enseigne mvc → test. Comme les deux
   `Exercies`, alors que l'énoncé écrit `Exercice#exo1_1` (`TD1.adoc:31`, `:42`, `:51`) →
   renommer la classe selon la convention `T0-16` (`Exo2Test`… ou `@Nested`) et aligner l'énoncé.
   *Vérif :* `grep -rn 'Exercies\|Exercice#' td1/` → vide.
-- [ ] **T1-02** · **`exo10/src/main/kotlin/iut/nantes/Movie.kt:8-20`** — le film s'appelle
+- [x] **T1-02** · **`exo10/src/main/kotlin/iut/nantes/Movie.kt:8-20`** — le film s'appelle
   `"My Little Pony: The Movie"`, alors que `FR_FR` et `FR_CA` ont pour clé `"My Little Pony"` : la
   traduction ne marche jamais sur les données de départ. De plus, les exemples de l'énoncé
   (`TD1.adoc:364-437`) mélangent les deux titres → choisir un titre unique, l'utiliser comme clé
   des deux maps et dans l'énoncé.
   *Vérif :* le test de l'exo 20 (`T1-14`) avec `Accept-Language: fr-FR` renvoie le titre traduit.
-- [ ] **T1-03** · ⚪ **`exo10/src/main/kotlin/iut/nantes/Movie.kt:19`** — `"Origine "` a une
+- [x] **T1-03** · ⚪ **`exo10/src/main/kotlin/iut/nantes/Movie.kt:19`** — `"Origine "` a une
   espace finale → la supprimer.
   *Vérif :* `grep -n '" *"' Movie.kt` → rien.
 - [ ] **T1-04** · **`TD1.adoc:158`** — « Lancer **Application.kt » (gras non fermé), alors

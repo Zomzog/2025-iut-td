@@ -119,7 +119,7 @@ class Exo8 {
 
 == Exo 9
 
-Ajouter les dépendances de test `io.mockk:mockk-jvm:1.14.6` et `com.ninja-squad:springmockk:4.0.2`.
+Ajouter les dépendances de test `io.mockk:mockk-jvm:1.14.6` et `com.ninja-squad:springmockk:5.0.1`.
 
 Dans la classe Exo8,
 remplacer la Database de userService par un mock.
