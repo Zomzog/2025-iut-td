@@ -1,20 +1,14 @@
 package iut.nantes.exo33.controller
 
 import iut.nantes.exo33.DatabaseProxy
-import org.hamcrest.Matchers.startsWith
 import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Nested
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc
 import org.springframework.http.MediaType.APPLICATION_JSON
 import org.springframework.test.web.servlet.MockMvc
-import org.springframework.test.web.servlet.delete
 import org.springframework.test.web.servlet.get
 import org.springframework.test.web.servlet.post
-import org.springframework.test.web.servlet.put
-import org.springframework.web.servlet.config.annotation.EnableWebMvc
 import kotlin.test.Test
 
 @SpringBootTest
