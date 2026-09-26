@@ -20,8 +20,10 @@ Les modifications sont à faire dans le module Exo1
 
 == Exo 0
 
-Créer une implémentation de Database nommée `ListDatabase`,
+Implémenter `ListDatabase` (le squelette est fourni, les méthodes valent `TODO()`),
 cette implémentation utilisera une liste en mémoire pour la persistance.
+
+Les tests de `Exo1Test` doivent passer.
 
 == Exo 1
 

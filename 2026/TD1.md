@@ -73,10 +73,10 @@ avant le MVC (ancien exo 10), alors que c1 enseigne mvc → test. Comme les deux
 
 ## 🟠 Migration 4.1
 
-- [ ] **T1-07** · **`exo1/build.gradle.kts`, `exo10/build.gradle.kts`** — appliquer `T0-12`
+- [x] **T1-07** · **`exo1/build.gradle.kts`, `exo10/build.gradle.kts`** — appliquer `T0-12`
   et `T0-13` (`starter-web` → `starter-webmvc`, springmockk 5.x).
   *Vérif :* `./gradlew -p td1 compileTestKotlin`.
-- [ ] **T1-08** · **`exo10/src/test/kotlin/iut/nantes/MovieControllerTest.kt:5`** — import de
+- [x] **T1-08** · **`exo10/src/test/kotlin/iut/nantes/MovieControllerTest.kt:5`** — import de
   `AutoConfigureMockMvc` à mettre à jour (`MIG-12`) ; ligne 8 : import inutilisé
   `RequestEntity.post` → le supprimer.
   *Vérif :* compilation sans warning d'import.
@@ -95,7 +95,7 @@ avant le MVC (ancien exo 10), alors que c1 enseigne mvc → test. Comme les deux
 
 ## 🔵 Autonomie / tests
 
-- [ ] **T1-12** · **ancien exo 0** — aucun test ne vérifie `ListDatabase` seule avant l'exo 2
+- [x] **T1-12** · **ancien exo 0** — aucun test ne vérifie `ListDatabase` seule avant l'exo 2
   → fournir `Exo1Test` (save / findOne / delete / findAll) qui instancie `ListDatabase()`.
   Le squelette ne contenant pas la classe, le test ne compile pas → fournir
   `class ListDatabase : Database` avec des `TODO()`.
