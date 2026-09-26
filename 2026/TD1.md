@@ -161,10 +161,10 @@ avant le MVC (ancien exo 10), alors que c1 enseigne mvc → test. Comme les deux
 
 ## 🟡 Énoncé
 
-- [ ] **T1-23** · **`TD1.adoc:1-19`** — le clone pointe vers `2025-iut-td` et le proxy se règle
+- [x] **T1-23** · **`TD1.adoc:1-19`** — le clone pointe vers `2025-iut-td` et le proxy se règle
   dans un `gradle.properties` à la racine → remplacer par le dépôt `td1` et
   `~/.gradle/gradle.properties` (`T0-06`, `T0-11`).
-  *Vérif :* instructions suivies sur un poste vierge.
+  *Vérif :* instructions suivies sur un poste vierge. ⚠ URL `Zomzog/2026-iut-td1` provisoire (`T0-23`, nom à valider).
 - [ ] **T1-24** · **Renumérotation** — appliquer la table ci-dessus aux titres `== Exo N`, aux
   renvois internes (« Le test exo1_3 doit toujours fonctionner », « Dans la classe Exo8 ») et
   aux noms de tests.

@@ -1,13 +1,11 @@
 == TD1
 
-Cloner https://github.com/Zomzog/2025-iut-td.git
+Cloner https://github.com/Zomzog/2026-iut-td1.git
 
-Sur le réseau de l'IUT, ajouter à la racine un fichier gradle.properties avec le contenu suivant :
+Sur le réseau de l'IUT, ajouter dans le fichier `~/.gradle/gradle.properties` (à créer s'il n'existe pas, il est commun à tous vos projets) le contenu suivant :
 
 [source,properties]
 ----
-kotlin.code.style=official
-
 systemProp.http.proxyHost=srv-proxy-etu-2.iut-nantes.univ-nantes.prive
 systemProp.http.proxyPort=3128
 systemProp.https.proxyHost=srv-proxy-etu-2.iut-nantes.univ-nantes.prive
