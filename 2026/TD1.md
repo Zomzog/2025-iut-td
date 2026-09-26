@@ -172,12 +172,12 @@ avant le MVC (ancien exo 10), alors que c1 enseigne mvc → test. Comme les deux
   (clin d'œil de geek). Les colonnes « Nouveau »/« Ancien » de la table ne s'appliquent donc pas à
   l'énoncé ni aux noms de tests : `Exo0Test`, `Exo7Test`…`Exo9Test`, `@Nested` `Exo10`…`Exo16`.
   *Vérif :* `grep -n 'Exo [0-9]' td1/README.adoc` ne cite que les nouveaux numéros.
-- [ ] **T1-25** · **`TD1.adoc:69-77`** (anciens exos 6 et 6.5) — préciser où écrire les tests
+- [x] **T1-25** · **`TD1.adoc:69-77`** (anciens exos 6 et 6.5) — préciser où écrire les tests
   (`src/test/kotlin/…/ListDatabaseTest.kt`), comment mesurer la couverture en CLI (plugin
   JaCoCo ? IntelliJ seulement ?) et, pour l'exo 8, comment réutiliser les tests (classe
   abstraite paramétrée).
-  **DÉCISION :** ___ (JaCoCo dans le build ?)
-  *Vérif :* un étudiant VS Code peut mesurer la couverture.
+  **DÉCISION :** IntelliJ uniquement (« Run with Coverage »), pas de JaCoCo dans le build ; VS Code n'est pas couvert. Classe abstraite `DatabaseTest` proposée pour l'exo 6.5.
+  *Vérif :* le TIP IntelliJ est présent dans l'énoncé de l'exo 6.
 - [ ] **T1-26** · **`TD1.adoc:139-153`** (ancien exo 9) — le snippet n'a pas de langage
   (` ``` ` nu) et le `// GIVEN TODO` n'indique pas ce qu'il faut mocker (`every { database.delete(...) } throws …`)
   → donner un indice repliable (`[%collapsible]`) comme au TD2.

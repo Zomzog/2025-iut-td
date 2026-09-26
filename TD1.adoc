@@ -71,13 +71,19 @@ Le test `Exo3` doit toujours fonctionner.
 
 == Exo 6
 
-Créer une classe de tests unitaires ListDatabaseTest qui couvre à 100% ListDatabase.
+Créer une classe de tests unitaires `ListDatabaseTest` (dans `src/test/kotlin/iut/nantes/`) qui couvre à 100% `ListDatabase`.
+
+TIP: pour mesurer la couverture dans IntelliJ, clic droit sur la classe de test puis *Run 'ListDatabaseTest' with Coverage*.
+Le résultat s'affiche dans la fenêtre *Coverage* et en vert/rouge dans le code de `ListDatabase`.
 
 == Exo 6.5
 
 Créer une nouvelle version de Database nommée `HashDatabase` en utilisant une `Map<UUID, User>` comme persistance.
 
 Elle doit répondre aux mêmes tests que ListDatabaseTest.
+
+TIP: pour ne pas dupliquer les tests, écrivez-les dans une classe abstraite `DatabaseTest` avec une méthode abstraite `createDatabase(): Database`,
+puis créez `ListDatabaseTest` et `HashDatabaseTest` qui en héritent et fournissent chacun leur implémentation.
 
 == Exo 7
 
