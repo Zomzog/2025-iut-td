@@ -143,16 +143,16 @@ avant le MVC (ancien exo 10), alors que c1 enseigne mvc → test. Comme les deux
   / type nullable), ou donner l'indice dans l'énoncé.
   **DÉCISION :** slide `C1-23` ajoutée (`iut-spring-kotlin`) et indice (TIP) ajouté dans l'énoncé.
   *Vérif :* l'étudiant trouve l'information dans la slide ou l'énoncé.
-- [ ] **T1-20** · **ancien exo 8** — `@SpringBootTest` ne fonctionne que si le test est dans le
+- [x] **T1-20** · **ancien exo 8** — `@SpringBootTest` ne fonctionne que si le test est dans le
   package de l'application ou un sous-package, ce que c1 signale trop tard (`C1-38`) →
   l'ajouter à l'énoncé (encadré « Attention ») et traiter `C1-38`.
   *Vérif :* encadré présent dans `td1/README.adoc`.
-- [ ] **T1-21** · **ancien exo 20 (`TD1.adoc:447`)** — la slide `@WebMvcTest` mock désormais un
+- [x] **T1-21** · **ancien exo 20 (`TD1.adoc:447`)** — la slide `@WebMvcTest` mock désormais un
   Service (`C1-12`), mais le module `web` n'a pas de service (le contrôleur utilise `Database`
   directement). Proposition : ajouter un `MovieService` au squelette, ou faire mocker
   `Database` dans l'exo (le nom n'entre plus en collision avec l'interface Spring `Repository`).
-  **DÉCISION :** ___
-  *Vérif :* le test `@WebMvcTest` de la correction mocke le même type de bean que la slide.
+  **DÉCISION :** on mocke `Database` (pas de `MovieService` ajouté) ; indice ajouté dans l'énoncé pour expliquer la différence avec la slide, qui mocke un service. La correction de l'exo 22 (`T1-34`) doit mocker `Database`.
+  *Vérif :* le test `@WebMvcTest` de la correction mocke `Database` avec `@MockkBean`, comme l'indique l'énoncé.
 - [ ] **T1-22** · **exos 21-22** — `MockMvcTester` / `RestTestClient` (`C1-19`, `MIG-16`) :
   garder le DSL Kotlin `MockMvc` (cohérent avec les slides et les tests fournis), citer
   `MockMvcTester` en remarque.
@@ -194,7 +194,7 @@ avant le MVC (ancien exo 10), alors que c1 enseigne mvc → test. Comme les deux
 
 ## 📽 Slides à modifier (amphi 1)
 
-- [ ] **T1-29** · `C1-21` (201 + `Location`), `C1-22` (`@RequestMapping` au niveau de la classe),
+- [x] **T1-29** · `C1-21` (201 + `Location`), `C1-22` (`@RequestMapping` au niveau de la classe),
   `C1-23` (`@RequestParam` optionnel) et `C1-38` (sous-package) conditionnent directement les
   exos 13, 15-16, 19 et 10 → à traiter **avant** le TD1.
   *Vérif :* les 4 IDs sont cochés dans `Cours 1.md`.

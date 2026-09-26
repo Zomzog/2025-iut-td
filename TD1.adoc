@@ -110,6 +110,9 @@ Ajouter les dépendances `org.springframework.boot:spring-boot-starter` et `org.
 
 Remplacer tout ce qui est possible par l'utilisation de l'annotation SpringBootApplication dans le main.
 
+WARNING: `@SpringBootTest` cherche l'application `@SpringBootApplication` dans le package du test, puis dans les packages parents.
+Le test doit donc être dans le package de l'application (ou un sous-package), ici `iut.nantes`.
+
 Créer `Exo10Test.kt` avec ce contenu, le test doit passer.
 
 [source,kotlin]
@@ -473,3 +476,6 @@ La documentation se trouve https://docs.spring.io/spring-framework/reference/tes
 == Exo 20
 
 En utilisant WebMvcTest, faire une couverture à 100% du RestController
+
+TIP: `@WebMvcTest` ne charge que la couche web : les dépendances du contrôleur doivent être mockées.
+Ici le contrôleur utilise directement `Database` (il n'y a pas de couche service), c'est donc elle que vous mockez avec `@MockkBean`.
