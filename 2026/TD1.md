@@ -100,12 +100,13 @@ avant le MVC (ancien exo 10), alors que c1 enseigne mvc → test. Comme les deux
   Le squelette ne contenant pas la classe, le test ne compile pas → fournir
   `class ListDatabase : Database` avec des `TODO()`.
   *Vérif :* `Exo1Test` rouge sur `main`, vert sur le commit de l'exo 1.
-- [ ] **T1-13** · **`TD1.adoc:79-138`** (anciens exos 7, 8, 9) — les tests sont donnés en
+- [x] **T1-13** · **`TD1.adoc:79-138`** (anciens exos 7, 8, 9) — les tests sont donnés en
   snippet dans l'énoncé → les fournir dans le module (`Exo9Test`, `Exo10Test`, `Exo11Test`).
-  Problème : `Exo10Test` (`@SpringBootTest`) et `Exo11Test` (`@MockkBean`) ne compilent pas
-  sans les dépendances que l'étudiant ajoute à l'exo 10 → ces deux tests restent en snippet
-  dans l'énoncé (mécanique actuelle), avec la consigne « créez `Exo10Test.kt` avec ce contenu ».
-  *Vérif :* `Exo9Test` fourni et rouge sur `main` ; `Exo10Test`/`Exo11Test` verts sur `correction`.
+  Problème : `Exo9Test` référence `AppConfig` et `HashDatabase`, créés par l'étudiant, et
+  `Exo10Test`/`Exo11Test` (`@SpringBootTest`, `@MockkBean`) exigent les dépendances de l'exo 10 :
+  les trois cassent la compilation du module s'ils sont fournis → **DÉCISION :** les trois restent en
+  snippet dans l'énoncé (« créez `Exo9Test.kt` avec ce contenu »).
+  *Vérif :* `Exo9Test`, `Exo10Test` et `Exo11Test` verts sur `correction`.
 - [ ] **T1-14** · **`exo10/src/test/kotlin/iut/nantes/MovieControllerTest.kt`** — décision
   Q2.4 (a) : fournir les tests MockMvc des nouveaux exos 12 à 18 (hello, POST 201, POST 409,
   GET liste, GET 200/404, PUT 200/400/404, DELETE 204/404), une classe ou un `@Nested` par exo.
