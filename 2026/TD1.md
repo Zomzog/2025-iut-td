@@ -61,14 +61,14 @@ avant le MVC (ancien exo 10), alors que c1 enseigne mvc → test. Comme les deux
   que le fichier est `Exo10Application.kt` → corriger le nom et donner l'équivalent en CLI
   (`./gradlew :web:bootRun`).
   *Vérif :* la commande de l'énoncé démarre l'application.
-- [ ] **T1-05** · **correction `6de38b3` (Exo16)** — le DELETE d'un film absent renvoie 400
+- [x] **T1-05** · **correction `6de38b3` (Exo16)** — le DELETE d'un film absent renvoie 400
   au lieu de 404 → corriger dans le commit de correction de l'exo 18.
   *Vérif :* le test DELETE 404 de `T1-14` est vert sur `correction`.
-- [ ] **T1-06** · **`exo1/src/main/kotlin/iut/nantes/UserService.kt:15-17` et `:23-25`** —
+- [x] **T1-06** · **`exo1/src/main/kotlin/iut/nantes/UserService.kt:15-17` et `:23-25`** —
   `update` et `findAll(name)` valent `TODO()` sans qu'aucun exo ne les utilise, alors que
   `SuperUserService.findAll()` est appelé → retirer ces méthodes du squelette ou les faire
   implémenter dans un exo.
-  **DÉCISION :** ___
+  **DÉCISION :** implémentées par délégation à `Database` (comme `save`/`delete`), plus de `TODO()`.
   *Vérif :* aucun `TODO()` restant dans `td1/di/src/main` sur `correction`.
 
 ## 🟠 Migration 4.1
