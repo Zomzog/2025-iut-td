@@ -57,7 +57,7 @@ avant le MVC (ancien exo 10), alors que c1 enseigne mvc → test. Comme les deux
 - [x] **T1-03** · ⚪ **`exo10/src/main/kotlin/iut/nantes/Movie.kt:19`** — `"Origine "` a une
   espace finale → la supprimer.
   *Vérif :* `grep -n '" *"' Movie.kt` → rien.
-- [ ] **T1-04** · **`TD1.adoc:158`** — « Lancer **Application.kt » (gras non fermé), alors
+- [x] **T1-04** · **`TD1.adoc:158`** — « Lancer **Application.kt » (gras non fermé), alors
   que le fichier est `Exo10Application.kt` → corriger le nom et donner l'équivalent en CLI
   (`./gradlew :web:bootRun`).
   *Vérif :* la commande de l'énoncé démarre l'application.

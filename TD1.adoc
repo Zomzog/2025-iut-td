@@ -155,7 +155,12 @@ class HelloController {
 
 === Lancer & tester
 
-Lancer **Application.kt qui est à la racine du projet (clic droit -> run).
+Lancer `Exo10Application.kt` qui est à la racine du projet (clic droit -> run),
+ou en ligne de commande :
+
+```bash
+./gradlew :exo10:bootRun
+```
 
 Appeler GET localhost:8080/hello et vérifier que la réponse est bien "world".
 
