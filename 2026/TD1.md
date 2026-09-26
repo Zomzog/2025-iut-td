@@ -178,7 +178,7 @@ avant le MVC (ancien exo 10), alors que c1 enseigne mvc → test. Comme les deux
   abstraite paramétrée).
   **DÉCISION :** IntelliJ uniquement (« Run with Coverage »), pas de JaCoCo dans le build ; VS Code n'est pas couvert. Classe abstraite `DatabaseTest` proposée pour l'exo 6.5.
   *Vérif :* le TIP IntelliJ est présent dans l'énoncé de l'exo 6.
-- [ ] **T1-26** · **`TD1.adoc:139-153`** (ancien exo 9) — le snippet n'a pas de langage
+- [x] **T1-26** · **`TD1.adoc:139-153`** (ancien exo 9) — le snippet n'a pas de langage
   (` ``` ` nu) et le `// GIVEN TODO` n'indique pas ce qu'il faut mocker (`every { database.delete(...) } throws …`)
   → donner un indice repliable (`[%collapsible]`) comme au TD2.
   *Vérif :* rendu GitHub.

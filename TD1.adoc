@@ -154,6 +154,23 @@ fun test() {
 }
 ----
 
+.Indice
+[%collapsible]
+====
+Le `GIVEN` consiste à programmer le mock avec `every { ... } throws ...` ou `every { ... } just Runs`.
+
+Avec MockK, si plusieurs `every` correspondent à un appel, c'est le dernier déclaré qui s'applique :
+déclarez donc le cas général (`any()`) avant le cas particulier.
+
+[source,kotlin]
+----
+every { database.delete(any()) } just Runs
+every { database.delete(user()) } throws NoSuchElementException()
+----
+
+Pour que `userService` utilise le mock, déclarez-le dans la classe de test avec `@MockkBean lateinit var database: Database`.
+====
+
 == Exo 10
 
 À partir de cet exercice, les modifications seront à faire dans le module Exo10.
