@@ -16,8 +16,8 @@ import org.springframework.test.web.servlet.post
 import org.springframework.test.web.servlet.put
 
 /**
- * Tests fournis pour les exos 12 à 18, un `@Nested` par exo.
- * Ils servent d'exemples pour l'exo 21, où vous écrivez vous-même les tests des exos 19 et 20.
+ * Tests fournis pour les exos 10 à 16, un `@Nested` par exo.
+ * Ils servent d'exemples pour l'exo 19, où vous écrivez vous-même les tests des exos 17 et 18.
  *
  * La base est réinitialisée avant chaque test : les tests ne dépendent pas les uns des autres.
  */
@@ -30,8 +30,8 @@ class MovieControllerTest {
     lateinit var mockMvc: MockMvc
 
     @Nested
-    @DisplayName("Exo 12 — HelloController")
-    inner class Exo12 {
+    @DisplayName("Exo 10 — HelloController")
+    inner class Exo10 {
 
         @Test
         fun hello() {
@@ -44,8 +44,8 @@ class MovieControllerTest {
     }
 
     @Nested
-    @DisplayName("Exo 13 — POST → 201")
-    inner class Exo13 {
+    @DisplayName("Exo 11 — POST → 201")
+    inner class Exo11 {
 
         @Test
         fun create() {
@@ -62,8 +62,8 @@ class MovieControllerTest {
     }
 
     @Nested
-    @DisplayName("Exo 14 — POST → 409")
-    inner class Exo14 {
+    @DisplayName("Exo 12 — POST → 409")
+    inner class Exo12 {
 
         @Test
         fun conflict() {
@@ -88,8 +88,8 @@ class MovieControllerTest {
     }
 
     @Nested
-    @DisplayName("Exo 15 — GET liste")
-    inner class Exo15 {
+    @DisplayName("Exo 13 — GET liste")
+    inner class Exo13 {
 
         @Test
         fun demoGet() {
@@ -103,8 +103,8 @@ class MovieControllerTest {
     }
 
     @Nested
-    @DisplayName("Exo 16 — GET unitaire")
-    inner class Exo16 {
+    @DisplayName("Exo 14 — GET unitaire")
+    inner class Exo14 {
 
         @Test
         fun found() {
@@ -124,8 +124,8 @@ class MovieControllerTest {
     }
 
     @Nested
-    @DisplayName("Exo 17 — PUT")
-    inner class Exo17 {
+    @DisplayName("Exo 15 — PUT")
+    inner class Exo15 {
 
         @Test
         fun updated() {
@@ -159,8 +159,8 @@ class MovieControllerTest {
     }
 
     @Nested
-    @DisplayName("Exo 18 — DELETE")
-    inner class Exo18 {
+    @DisplayName("Exo 16 — DELETE")
+    inner class Exo16 {
 
         @Test
         fun deleted() {

@@ -21,7 +21,7 @@ Les modifications sont à faire dans le module Exo1
 Implémenter `ListDatabase` (le squelette est fourni, les méthodes valent `TODO()`),
 cette implémentation utilisera une liste en mémoire pour la persistance.
 
-Les tests de `Exo1Test` doivent passer.
+Les tests de `Exo0Test` doivent passer.
 
 == Exo 1
 
@@ -84,11 +84,11 @@ Elle doit répondre aux mêmes tests que ListDatabaseTest.
 Dans AppConfig, créer le bean de HashDatabase en scope Singleton.
 Utiliser ce bean pour superUserService.
 
-Créer `Exo9Test.kt` (dans `src/test/kotlin/iut/nantes`) avec ce contenu, le test doit passer :
+Créer `Exo7Test.kt` (dans `src/test/kotlin/iut/nantes`) avec ce contenu, le test doit passer :
 
 [source,kotlin]
 ----
-class Exo9Test {
+class Exo7Test {
 
     @Test
     fun test() {
@@ -111,12 +111,12 @@ Remplacer tout ce qui est possible par l'utilisation de l'annotation SpringBootA
 WARNING: `@SpringBootTest` cherche l'application `@SpringBootApplication` dans le package du test, puis dans les packages parents.
 Le test doit donc être dans le package de l'application (ou un sous-package), ici `iut.nantes`.
 
-Créer `Exo10Test.kt` avec ce contenu, le test doit passer.
+Créer `Exo8Test.kt` avec ce contenu, le test doit passer.
 
 [source,kotlin]
 ----
 @SpringBootTest
-class Exo10Test {
+class Exo8Test {
 
     @Autowired
     private lateinit var userService: UserService
@@ -132,7 +132,7 @@ class Exo10Test {
 
 Ajouter les dépendances de test `io.mockk:mockk-jvm:1.14.6` et `com.ninja-squad:springmockk:5.0.1`.
 
-Créer `Exo11Test.kt` : sur le modèle de `Exo10Test`, remplacer la Database de userService par un mock.
+Créer `Exo9Test.kt` : sur le modèle de `Exo8Test`, remplacer la Database de userService par un mock.
 
 Ajouter ce test et le compléter pour qu'il soit valide.
 

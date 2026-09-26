@@ -9,8 +9,8 @@ import java.util.UUID
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
-@DisplayName("Exo 1 — ListDatabase")
-class Exo1Test {
+@DisplayName("Exo 0 — ListDatabase")
+class Exo0Test {
 
     private val database: Database = ListDatabase()
 
