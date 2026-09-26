@@ -138,10 +138,10 @@ avant le MVC (ancien exo 10), alors que c1 enseigne mvc → test. Comme les deux
   l'indiquer en indice dans l'énoncé.
   **DÉCISION :** slide `C1-22` ajoutée (`iut-spring-kotlin`) et indice (TIP) ajouté dans l'énoncé.
   *Vérif :* la slide `C1-22` est cochée.
-- [ ] **T1-19** · **ancien exo 17 (`TD1.adoc:364`)** — le filtre `?rating` suppose un
+- [x] **T1-19** · **ancien exo 17 (`TD1.adoc:364`)** — le filtre `?rating` suppose un
   `@RequestParam` optionnel, absent de c1 (`C1-23`) → ajouter la slide `C1-23` (`required = false`
   / type nullable), ou donner l'indice dans l'énoncé.
-  **DÉCISION :** ___
+  **DÉCISION :** slide `C1-23` ajoutée (`iut-spring-kotlin`) et indice (TIP) ajouté dans l'énoncé.
   *Vérif :* l'étudiant trouve l'information dans la slide ou l'énoncé.
 - [ ] **T1-20** · **ancien exo 8** — `@SpringBootTest` ne fonctionne que si le test est dans le
   package de l'application ou un sous-package, ce que c1 signale trop tard (`C1-38`) →

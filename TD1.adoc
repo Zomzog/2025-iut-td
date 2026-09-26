@@ -389,6 +389,8 @@ HTTP/1.1 404
 
 Ajouter sur la liste des films la possibilité de filtrer par note.
 
+TIP: le paramètre `rating` est optionnel : sans lui, la liste complète est renvoyée (`@RequestParam` nullable ou `required = false`).
+
 Exemple d'appel :
 ----
 curl --location 'localhost:8080/api/movies?rating=99'
