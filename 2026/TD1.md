@@ -44,7 +44,7 @@ avant le MVC (ancien exo 10), alors que c1 enseigne mvc → test. Comme les deux
 
 ## 🔴 Erreurs
 
-- [ ] **T1-01** · **`exo1/src/test/kotlin/iut/nantes/Exercies.kt:9`** — la classe s'appelle
+- [x] **T1-01** · **`exo1/src/test/kotlin/iut/nantes/Exercies.kt:9`** — la classe s'appelle
   `Exercies`, alors que l'énoncé écrit `Exercice#exo1_1` (`TD1.adoc:31`, `:42`, `:51`) →
   renommer la classe selon la convention `T0-16` (`Exo2Test`… ou `@Nested`) et aligner l'énoncé.
   *Vérif :* `grep -rn 'Exercies\|Exercice#' td1/` → vide.

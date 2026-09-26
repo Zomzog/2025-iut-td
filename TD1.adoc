@@ -28,7 +28,7 @@ cette implémentation utilisera une liste en mémoire pour la persistance.
 En utilisant l'approche des @Bean,
 créer un fichier AppConfig qui gère la création des beans userService et Database.
 
-Dans la classe de test Exercice#exo1_1, charger le contexte Spring à partir de AppConfig
+Dans la classe de test imbriquée `ExercicesTest.Exo1`, charger le contexte Spring à partir de AppConfig
 pour obtenir une instance de userService.
 
 == Exo 2
@@ -38,7 +38,7 @@ ajouter la création d'un bean SuperUserService.
 
 Il doit partager la même instance de `Database`.
 
-Dans la classe de test Exercice#exo1_2, charger le contexte Spring à partir de AppConfig
+Dans la classe de test imbriquée `ExercicesTest.Exo2`, charger le contexte Spring à partir de AppConfig
 pour obtenir une instance des services.
 
 Le test doit passer.
@@ -47,16 +47,16 @@ Le test doit passer.
 
 En jouant sur le scope, faire en sorte qu'ils ne partagent plus la même instance de `Database`.
 
-Dans la classe de test Exercice#exo1_3, charger le contexte Spring à partir de AppConfig
+Dans la classe de test imbriquée `ExercicesTest.Exo3`, charger le contexte Spring à partir de AppConfig
 pour obtenir une instance des services.
 
-Le test doit passer, le test exo1_2 ne passe plus.
+Le test doit passer, le test `Exo2` ne passe plus.
 
 == Exo 4
 
 Supprimer le constructeur de SuperUserService et utiliser l'injection avec Autowired pour ce service.
 
-Le test exo1_3 doit toujours fonctionner.
+Le test `Exo3` doit toujours fonctionner.
 
 == Exo 5
 
@@ -64,7 +64,7 @@ Remplacer la création du bean `Database` en utilisant le stéréotype `@Reposit
 
 Il faut ajouter un @ComponentScan sur AppConfig pour que Spring le trouve.
 
-Le test exo1_3 doit toujours fonctionner.
+Le test `Exo3` doit toujours fonctionner.
 
 == Exo 6
 
