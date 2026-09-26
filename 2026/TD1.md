@@ -107,7 +107,7 @@ avant le MVC (ancien exo 10), alors que c1 enseigne mvc → test. Comme les deux
   les trois cassent la compilation du module s'ils sont fournis → **DÉCISION :** les trois restent en
   snippet dans l'énoncé (« créez `Exo9Test.kt` avec ce contenu »).
   *Vérif :* `Exo9Test`, `Exo10Test` et `Exo11Test` verts sur `correction`.
-- [ ] **T1-14** · **`exo10/src/test/kotlin/iut/nantes/MovieControllerTest.kt`** — décision
+- [x] **T1-14** · **`exo10/src/test/kotlin/iut/nantes/MovieControllerTest.kt`** — décision
   Q2.4 (a) : fournir les tests MockMvc des nouveaux exos 12 à 18 (hello, POST 201, POST 409,
   GET liste, GET 200/404, PUT 200/400/404, DELETE 204/404), une classe ou un `@Nested` par exo.
   Ils servent d'exemples pour les exos 21-22, où l'étudiant écrit lui-même les tests des
