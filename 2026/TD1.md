@@ -23,7 +23,7 @@ avant le MVC (ancien exo 10), alors que c1 enseigne mvc → test. Comme les deux
 | 2 | 1 | di | `@Bean` + `AnnotationConfigApplicationContext` | `c1/di.md:255-360` | `exo1_1` (à compléter par l'étudiant) | socle |
 | 3 | 2 | di | singleton partagé | `c1/di.md:539-610` | `exo1_2` | socle |
 | 4 | 3 | di | scope prototype | `c1/di.md:593-646` | `exo1_3` | socle |
-| 5 | 4 | di | injection automatique | `c1/di.md:748-810` | `exo1_3` | socle (🔀 `T1-16`) |
+| 5 | 4 | di | injection automatique | `c1/di.md:748-810` | `exo1_3` | socle |
 | 6 | 5 | di | `@Repository` + `@ComponentScan` | `c1/di.md:818-930`, `c1/springboot.md:137-153` | `exo1_3` | socle |
 | 7 | 6 | di | tests unitaires de `ListDatabase` | `c1/test.md:28-111` | écrit par l'étudiant | socle |
 | 8 | 6.5 | di | `HashDatabase` | — | tests de l'exo 7 | socle |
@@ -113,25 +113,25 @@ avant le MVC (ancien exo 10), alors que c1 enseigne mvc → test. Comme les deux
   Ils servent d'exemples pour les exos 21-22, où l'étudiant écrit lui-même les tests des
   exos 19-20. Supprimer le commentaire « FOR EXO 19 » (`:13-22`).
   *Vérif :* 7 tests rouges sur `main`, verts sur le commit de l'exo 18.
-- [ ] **T1-15** · **anciens exos 17-18** — en complément (si `T0-04` OK), une collection
+- [x] **T1-15** · **anciens exos 17-18** — en complément (si `T0-04` OK), une collection
   Bruno `td1/web/bruno/` qui appelle `?rating=99` et `Accept-Language: fr-FR` avec assertions,
   pour que l'étudiant vérifie son code **avant** d'écrire ses propres tests aux exos 21-22.
-  **DÉCISION :** ___
+  **DÉCISION :** abandonné — les `curl` de l'énoncé et les tests de `T1-14` couvrent déjà ces vérifications ; Bruno ajouterait un outil à installer pour deux requêtes.
   *Vérif :* `bru run --env local` vert sur `correction`.
 
 ## 🔀 Cohérence avec les slides
 
-- [ ] **T1-16** · **ancien exo 4 (`TD1.adoc:55-59`)** — l'énoncé fait supprimer le constructeur et
+- [x] **T1-16** · **ancien exo 4 (`TD1.adoc:55-59`)** — l'énoncé fait supprimer le constructeur et
   injecter avec `@Autowired` sur un champ, alors que c1 présente désormais l'injection par
   constructeur comme la norme (`C1-29`, `C1-41`). Proposition : l'exo devient « annoter
   `SuperUserService` en `@Service` et laisser Spring injecter `Database` par le constructeur » ;
   l'injection par champ n'est plus citée qu'en remarque (« existe, à éviter »).
-  **DÉCISION :** ___
-  *Vérif :* énoncé et correction sans `lateinit var` + `@Autowired`.
-- [ ] **T1-17** · **ancien exo 11 (`TD1.adoc:185-198`)** — l'énoncé demande un 201, mais c1 ne
+  **DÉCISION :** l'exo est conservé tel quel : l'objectif est que l'étudiant expérimente l'injection par champ. Ajout d'une remarque dans l'énoncé (« on préfère le constructeur en pratique »).
+  *Vérif :* la remarque est présente dans l'énoncé de l'exo 4 ; la correction de l'exo 4 garde l'injection par champ.
+- [x] **T1-17** · **ancien exo 11 (`TD1.adoc:185-198`)** — l'énoncé demande un 201, mais c1 ne
   montre ni `ResponseEntity.created()` ni le header `Location` (`C1-21`). Proposition : ajouter la
   slide (`C1-21`) et exiger `Location` dans le test de `T1-14`.
-  **DÉCISION :** ___
+  **DÉCISION :** `Location` exigé. Énoncé et test POST faits ; slide `C1-21` faite (`iut-spring-kotlin`) ; reste la correction de l'exo 13 (`345da84`, `T1-33`) à mettre à jour.
   *Vérif :* le test POST vérifie `header { string("Location", …) }`.
 - [ ] **T1-18** · **`/api/movies`** — c1 ne montre pas `@RequestMapping` au niveau de la
   classe (`C1-22`), que la correction utilise. Proposition : ajouter la slide `C1-22` et
@@ -207,7 +207,7 @@ avant le MVC (ancien exo 10), alors que c1 enseigne mvc → test. Comme les deux
 Un commit par exo. Hash d'origine → nouveau commit :
 
 - [ ] **T1-31** · Exo 1 ← `31edc0e` (Exo0) · Exo 2 ← `88662b8` · Exo 3 ← `2024f3c` ·
-  Exo 4 ← `63ed3d6` · Exo 5 ← `d5dc730` (à réécrire selon `T1-16`) · Exo 6 ← `03b9f7a`.
+  Exo 4 ← `63ed3d6` · Exo 5 ← `d5dc730` · Exo 6 ← `03b9f7a`.
   *Vérif :* CI `correction` verte sur ces 6 commits.
 - [ ] **T1-32** · Exo 7 ← `23bb822` · Exo 8 ← `7d17880` · Exo 9 ← `53061e3` ·
   Exo 10 ← `036215f` · Exo 11 ← `e2e2caa` (mettre à jour pour springmockk 5).

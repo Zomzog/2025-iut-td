@@ -58,6 +58,9 @@ Le test doit passer, le test `Exo2` ne passe plus.
 
 Supprimer le constructeur de SuperUserService et utiliser l'injection avec Autowired pour ce service.
 
+NOTE: l'injection par champ (`@Autowired` sur une propriété) est là pour que vous voyiez comment elle fonctionne.
+En pratique, on préfère l'injection par constructeur (comme avant cet exo) : dépendances explicites, testable sans Spring.
+
 Le test `Exo3` doit toujours fonctionner.
 
 == Exo 5
@@ -200,6 +203,10 @@ ils sont rouges au départ et doivent passer au fur et à mesure des exos.
 == Exo 11: Create
 
 Le premier endpoint POST `/api/movies` prend le JSON d'un film, l'enregistre dans la Map et répond un HTTP 201 avec le contenu du film en body.
+La réponse contient aussi le header `Location` avec l'URL de la ressource créée (`/api/movies/{name}`).
+
+TIP: `ResponseEntity.created(uri)` positionne le status 201 et le header `Location`.
+Le nom du film peut contenir des espaces : l'URI doit être encodée (`Jurassic%20Park`).
 Exemple d'appel :
 ----
 curl --location 'localhost:8080/api/movies' \

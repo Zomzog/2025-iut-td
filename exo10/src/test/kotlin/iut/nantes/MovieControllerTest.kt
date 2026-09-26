@@ -1,5 +1,6 @@
 package iut.nantes
 
+import org.hamcrest.Matchers.endsWith
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
@@ -53,6 +54,7 @@ class MovieControllerTest {
                 content = JURASSIC_PARK
             }.andExpect {
                 status { isCreated() }
+                header { string("Location", endsWith("/api/movies/Jurassic%20Park")) }
                 jsonPath("$.name") { value("Jurassic Park") }
                 jsonPath("$.rating") { value(91) }
             }
