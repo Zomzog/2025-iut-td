@@ -153,10 +153,10 @@ avant le MVC (ancien exo 10), alors que c1 enseigne mvc → test. Comme les deux
   `Database` dans l'exo (le nom n'entre plus en collision avec l'interface Spring `Repository`).
   **DÉCISION :** on mocke `Database` (pas de `MovieService` ajouté) ; indice ajouté dans l'énoncé pour expliquer la différence avec la slide, qui mocke un service. La correction de l'exo 22 (`T1-34`) doit mocker `Database`.
   *Vérif :* le test `@WebMvcTest` de la correction mocke `Database` avec `@MockkBean`, comme l'indique l'énoncé.
-- [ ] **T1-22** · **exos 21-22** — `MockMvcTester` / `RestTestClient` (`C1-19`, `MIG-16`) :
+- [x] **T1-22** · **exos 21-22** — `MockMvcTester` / `RestTestClient` (`C1-19`, `MIG-16`) :
   garder le DSL Kotlin `MockMvc` (cohérent avec les slides et les tests fournis), citer
   `MockMvcTester` en remarque.
-  **DÉCISION :** ___
+  **DÉCISION :** DSL Kotlin `MockMvc` conservé ; `MockMvcTester` cité en remarque (NOTE sous l'exo 19).
   *Vérif :* énoncé et slides utilisent la même API.
 
 ## 🟡 Énoncé

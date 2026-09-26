@@ -473,6 +473,9 @@ Un exemple est fourni dans MovieControllerTest,
 
 La documentation se trouve https://docs.spring.io/spring-framework/reference/testing/mockmvc.html[ici]
 
+NOTE: utilisez le DSL Kotlin de `MockMvc` (`mockMvc.get(...) { ... }.andExpect { ... }`), comme dans l'exemple.
+Spring propose aussi `MockMvcTester` (API AssertJ) : elle existe, mais n'est pas utilisée dans ce TD.
+
 == Exo 20
 
 En utilisant WebMvcTest, faire une couverture à 100% du RestController
