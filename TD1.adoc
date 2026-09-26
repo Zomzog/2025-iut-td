@@ -197,6 +197,8 @@ La map peut être initialisée avec une liste de films (cf MOVIES dans la classe
 
 L'implémentation se fera dans une classe MovieController.
 
+TIP: tous les endpoints commencent par `/api/movies` : `@RequestMapping("/api/movies")` sur la classe évite de répéter le préfixe.
+
 Des tests sont fournis dans `MovieControllerTest` (un `@Nested` par exo) :
 ils sont rouges au départ et doivent passer au fur et à mesure des exos.
 

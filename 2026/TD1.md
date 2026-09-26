@@ -133,10 +133,10 @@ avant le MVC (ancien exo 10), alors que c1 enseigne mvc → test. Comme les deux
   slide (`C1-21`) et exiger `Location` dans le test de `T1-14`.
   **DÉCISION :** `Location` exigé. Énoncé et test POST faits ; slide `C1-21` faite (`iut-spring-kotlin`) ; reste la correction de l'exo 13 (`345da84`, `T1-33`) à mettre à jour.
   *Vérif :* le test POST vérifie `header { string("Location", …) }`.
-- [ ] **T1-18** · **`/api/movies`** — c1 ne montre pas `@RequestMapping` au niveau de la
+- [x] **T1-18** · **`/api/movies`** — c1 ne montre pas `@RequestMapping` au niveau de la
   classe (`C1-22`), que la correction utilise. Proposition : ajouter la slide `C1-22` et
   l'indiquer en indice dans l'énoncé.
-  **DÉCISION :** ___
+  **DÉCISION :** slide `C1-22` ajoutée (`iut-spring-kotlin`) et indice (TIP) ajouté dans l'énoncé.
   *Vérif :* la slide `C1-22` est cochée.
 - [ ] **T1-19** · **ancien exo 17 (`TD1.adoc:364`)** — le filtre `?rating` suppose un
   `@RequestParam` optionnel, absent de c1 (`C1-23`) → ajouter la slide `C1-23` (`required = false`
